@@ -5,7 +5,6 @@ import "./SumContainer.scss"
 
 const SumContainer = () => {
     const [sumResults, setSumResults] = useState([])
-    console.log(sumResults)
 
     const [firstSummand, setFirstSummand] = useState(0)
     const [secondSummand, setSecondSummand] = useState(0)
