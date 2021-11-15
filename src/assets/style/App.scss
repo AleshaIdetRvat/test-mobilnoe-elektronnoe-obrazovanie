@@ -113,6 +113,10 @@ button {
     height: 100vh;
     font-size: 30px;
 
+    @media (max-width: 424px) {
+        font-size: 24px;
+    }
+
     background-color: var(--grey);
     color: var(--black);
 }

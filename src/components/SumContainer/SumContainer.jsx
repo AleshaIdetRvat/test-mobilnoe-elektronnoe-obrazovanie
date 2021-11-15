@@ -4,7 +4,8 @@ import { Summand } from "../Summand/Summand"
 import "./SumContainer.scss"
 
 const SumContainer = () => {
-    const [sumResults, setSumResults] = useState([1, 2, 3])
+    const [sumResults, setSumResults] = useState([])
+    console.log(sumResults)
 
     const [firstSummand, setFirstSummand] = useState(0)
     const [secondSummand, setSecondSummand] = useState(0)
@@ -26,7 +27,9 @@ const SumContainer = () => {
             <div className='sum__container'>
                 <form onSubmit={addNewResult} className='sum__column'>
                     <header className='sum__result'>
-                        <Popup>{[...sumResults].reverse().join(" ,")}</Popup>
+                        <Popup isShowing={sumResults.length !== 0}>
+                            {[...sumResults].reverse().join(" ,")}
+                        </Popup>
                     </header>
 
                     <div className='sum__summands'>
@@ -43,13 +46,26 @@ const SumContainer = () => {
                         />
                     </div>
 
-                    <button
-                        className='sum__solve-btn'
-                        tabIndex='3'
-                        type='submit'
-                    >
-                        Посчитать
-                    </button>
+                    <div className='sum__btns-block'>
+                        <button
+                            className='sum__solve-btn'
+                            tabIndex='3'
+                            type='submit'
+                        >
+                            Посчитать
+                        </button>
+
+                        <button
+                            className='sum__reset-btn'
+                            onClick={(e) => {
+                                e.preventDefault()
+                                setSumResults([])
+                            }}
+                            tabIndex='4'
+                        >
+                            Сбросить
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>
