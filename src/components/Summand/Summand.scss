@@ -1,0 +1,33 @@
+.summand {
+    display: inline-block;
+}
+.summand__body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+.summand__body,
+.summand__input {
+    transition: 0.2s;
+    width: 20vw;
+    height: 70px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: var(--pretty-shadow);
+    background-color: var(--grey);
+
+    @media (max-width: 768px) {
+        width: 35vw;
+    }
+}
+.summand__input {
+    text-align: center;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+    }
+}
+.summand__value-label {
+}

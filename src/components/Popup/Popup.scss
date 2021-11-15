@@ -1,0 +1,19 @@
+.popup {
+    display: inline-block;
+}
+.popup__container {
+    border-radius: 12px;
+    max-width: 50vw;
+    padding: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    direction: rtl;
+    text-align: left;
+    box-shadow: var(--pretty-shadow);
+
+    @media (max-width: 768px) {
+        max-width: 95vw;
+    }
+}
