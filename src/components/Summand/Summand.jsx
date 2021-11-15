@@ -6,9 +6,7 @@ const Summand = (props) => {
 
     const [isEditMode, setIsEditMode] = useState(false)
 
-    const onChangeSummand = (e) => {
-        onChange(+e.target.value)
-    }
+    const onChangeSummand = (e) => onChange(+e.target.value)
 
     return (
         <div onClick={() => setIsEditMode(true)} className='summand'>

@@ -1,5 +1,5 @@
-import classNames from "classnames"
 import React from "react"
+import classNames from "classnames"
 import "./Popup.scss"
 
 const Popup = (props) => {
