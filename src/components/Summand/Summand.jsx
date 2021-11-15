@@ -13,19 +13,20 @@ const Summand = (props) => {
             <div className='summand__body'>
                 {isEditMode ? (
                     <input
-                        tabIndex={tabIndex}
                         className='summand__input'
+                        role='textbox'
+                        tabIndex={tabIndex}
                         type='number'
-                        onChange={onChangeSummand}
-                        onBlur={() => setIsEditMode(false)}
                         defaultValue={value}
                         autoFocus
+                        onChange={onChangeSummand}
+                        onBlur={() => setIsEditMode(false)}
                     />
                 ) : (
                     <span
+                        className='summand__value-label'
                         tabIndex={tabIndex}
                         onFocus={() => setIsEditMode(true)}
-                        className='summand__value-label'
                     >
                         {value}
                     </span>

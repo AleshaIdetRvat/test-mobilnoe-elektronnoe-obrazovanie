@@ -1,32 +1,38 @@
 import React from "react"
 import { render, screen } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
 import { Summand } from "./Summand"
 
 const testOnChange = jest.fn()
 const testValue = 123
 
 describe("Summand component", () => {
-    it("Summand should ", () => {
+    it("should be render", () => {
         render(<Summand value={testValue} onChange={testOnChange} />)
+
+        expect(screen.getByText("123")).toBeDefined()
     })
 
-    // describe("Popup component", () => {
-    //     it('should renders "TEST TEXT IN POPUP"', () => {
-    //         render(<Popup>TEST TEXT IN POPUP</Popup>)
+    it("on click span unmount and render input", () => {
+        render(<Summand value={testValue} onChange={testOnChange} />)
+        const span = screen.getByText(testValue)
+        const spanAndInputContainer = span.parentElement
 
-    //         const textElement = screen.getByText("TEST TEXT IN POPUP")
+        expect(spanAndInputContainer.firstChild.nodeName).toBe("SPAN")
 
-    //         expect(textElement).toBeDefined()
-    //     })
+        userEvent.click(span)
 
-    //     it('with prop isShowing = true  should be have class "popup--showing" ', () => {
-    //         const { container } = render(
-    //             <Popup isShowing={true}>test text</Popup>
-    //         )
+        expect(spanAndInputContainer.firstChild.nodeName).toBe("INPUT")
+    })
 
-    //         expect(
-    //             container.firstChild.classList.contains("popup--showing")
-    //         ).toBe(true)
-    //     })
-    // })
+    it("on click span unmount and render input", () => {
+        render(<Summand value={testValue} onChange={testOnChange} />)
+        const span = screen.getByText(testValue)
+
+        userEvent.click(span)
+
+        userEvent.type(screen.getByRole("textbox"), "test text")
+
+        expect(testOnChange).toHaveBeenCalled()
+    })
 })
